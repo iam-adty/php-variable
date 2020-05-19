@@ -14,7 +14,7 @@ class IsSubClassOf extends Rule
 
     public function rule()
     {
-        $this->status = $this->status && is_subclass_of($this->class, $this->value);
+        $this->status = $this->status && is_subclass_of($this->value, $this->class);
         return parent::rule();
     }
 }
