@@ -1,15 +1,13 @@
 <?php namespace IamAdty\Variable\Rule;
 
+use IamAdty\Config\ConfigCollectionTrait;
 use IamAdty\Variable\Rule;
 
 class ArrayKey extends Rule
 {
 	public $array = [];
 
-    public function setArray($array = [])
-    {
-        $this->array = $array;
-    }
+    use ConfigCollectionTrait;
 
 	public function rule()
 	{

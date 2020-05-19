@@ -1,5 +1,6 @@
 <?php namespace IamAdty\Variable\Rule;
 
+use IamAdty\Config;
 use IamAdty\Variable\Rule;
 use IamAdty\Variable\Rule\ArrayKey;
 
@@ -14,10 +15,10 @@ class ArrayCollection extends Rule
 				foreach ($this->childRules as $rule) {
 					$input = $value;
 					if (is_a($rule, ArrayKey::class)) {
-						$input = $key;
-                        $rule->setArray($this->value);
+                        $input = $key;
+                        $rule->setConfig(new Config('array', $this->value));
 					} elseif (is_a($rule, ArrayValue::class)) {
-						$rule->setArray($this->value);
+                        $rule->setConfig(new Config('array', $this->value));
 					}
 
 					if (is_a($rule, Rule::class)) {
