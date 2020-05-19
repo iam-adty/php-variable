@@ -53,7 +53,7 @@ class Variable
         return new self($value);
     }
 
-    public function getValue()
+    public function value()
     {
         return $this->value;
     }

@@ -9,10 +9,14 @@
             "email": "iam.adty@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "iam-adty/php-config": "dev-develop"
+    },
     "autoload": {
         "psr-4": {
             "IamAdty\\": "src/"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
