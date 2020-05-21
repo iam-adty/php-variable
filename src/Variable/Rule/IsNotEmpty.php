@@ -4,9 +4,11 @@ use IamAdty\Variable\Rule;
 
 class IsNotEmpty extends Rule
 {
-	public function rule()
-	{
-		$this->status = $this->status && !empty($this->value);
-		return parent::rule();
-	}
+    public function rule()
+    {
+        $this->status = $this->status && !empty($this->value);
+        return parent::rule();
+    }
+
+    use RuleFactoryTrait;
 }

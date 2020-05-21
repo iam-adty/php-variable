@@ -4,9 +4,11 @@ use IamAdty\Variable\Rule;
 
 class IsString extends Rule
 {
-	public function rule()
-	{
-		$this->status = $this->status && is_string($this->value);
-		return parent::rule();
-	}
+    public function rule()
+    {
+        $this->status = $this->status && is_string($this->value);
+        return parent::rule();
+    }
+
+    use RuleFactoryTrait;
 }

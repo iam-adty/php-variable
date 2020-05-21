@@ -1,6 +1,7 @@
 <?php namespace IamAdty\Variable\Rule;
 
-class Result {
+class Result
+{
     public $status = true;
     public $value = null;
 

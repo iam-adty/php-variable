@@ -50,4 +50,9 @@ class Rule
     {
         return $this->childRules()->rule();
     }
+
+    public static function create(...$params)
+    {
+        return new self(...$params);
+    }
 }

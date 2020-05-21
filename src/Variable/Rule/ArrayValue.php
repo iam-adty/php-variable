@@ -9,9 +9,11 @@ class ArrayValue extends Rule
 
     use ConfigCollectionTrait;
 
-	public function rule()
-	{
-		$this->status = $this->status && in_array($this->value, $this->array);
-		return parent::rule();
-	}
+    public function rule()
+    {
+        $this->status = $this->status && in_array($this->value, $this->array);
+        return parent::rule();
+    }
+
+    use RuleFactoryTrait;
 }

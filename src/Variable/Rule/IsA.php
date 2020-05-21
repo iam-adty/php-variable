@@ -2,7 +2,7 @@
 
 use IamAdty\Variable\Rule;
 
-class IsSubClassOf extends Rule
+class IsA extends Rule
 {
     public $class = null;
 
@@ -14,7 +14,7 @@ class IsSubClassOf extends Rule
 
     public function rule()
     {
-        $this->status = $this->status && is_subclass_of($this->value, $this->class);
+        $this->status = $this->status && is_a($this->value, $this->class);
         return parent::rule();
     }
 
