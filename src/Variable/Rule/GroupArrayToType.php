@@ -16,14 +16,26 @@ class GroupArrayToType extends Rule
     {
         $this->status = $this->status && true;
 
-        $value = [];
-        foreach ($this->type as $type) {
-            $value[$type] = array_filter($this->value, function ($item) use ($type) {
-                return is_a($item, $type);
+        $group = [];
+        foreach ($this->type as $name => $type) {
+            $group[$name] = array_filter($this->value, function ($item) use ($type) {
+                if (is_array($type)) {
+                    $result = false;
+                    foreach ($type as $t) {
+                        d($t);
+                        if (is_string($item)) {
+                            d($item);
+                        }
+                        $result = is_a($item, $t);
+                    }
+                    return $result;
+                } else {
+                    return is_a($item, $type);
+                }
             });
         }
 
-        $this->value = $value;
+        $this->value = $group;
 
         return parent::rule();
     }
