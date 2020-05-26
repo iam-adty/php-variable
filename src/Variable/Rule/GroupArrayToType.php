@@ -22,11 +22,14 @@ class GroupArrayToType extends Rule
                 if (is_array($type)) {
                     $result = false;
                     foreach ($type as $t) {
-                        d($t);
-                        if (is_string($item)) {
-                            d($item);
+                        if (is_subclass_of($t, Rule::class)) {
+                            /** @var Rule $rule */
+                            $rule = new $t();
+                            $rule->setValue($item);
+                            $result = $result || $rule->getResult()->getStatus();
+                        } else {
+                            $result = $result || is_a($item, $t);
                         }
-                        $result = is_a($item, $t);
                     }
                     return $result;
                 } else {
